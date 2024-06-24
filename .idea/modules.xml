@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/coupang.iml" filepath="$PROJECT_DIR$/.idea/coupang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coupang/coupang.iml" filepath="$PROJECT_DIR$/coupang/coupang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/coupang_mini_project.iml" filepath="$PROJECT_DIR$/.idea/coupang_mini_project.iml" />
     </modules>
   </component>
 </project>
