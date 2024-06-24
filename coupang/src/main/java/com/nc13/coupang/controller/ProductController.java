@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/product/")
 @RequiredArgsConstructor
 public class ProductController {
-    @Autowired
-    private ProductService productService;
+//    @Autowired
+//    private ProductService productService;
 
 
 }

@@ -13,7 +13,7 @@
     <div class="main h-100">
         <div class="row justify-content-center">
             <div class="col-6 text-center">
-                <img src="/images/logo.webp" alt="이미지 로고">
+                <img src="/images/js_market_logo_improved.png" alt="이미지 로고">
             </div>
         </div>
         <form action="/user/auth" method="post">

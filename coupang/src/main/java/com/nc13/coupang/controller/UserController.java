@@ -24,7 +24,7 @@ public class UserController {
         UserDTO result = userService.auth(userDTO);
         if (result != null) {
             session.setAttribute("logIn", result);
-            return "redirect:/board/showAll";
+            return "redirect:/";
         }
 
         return "redirect:/";
@@ -32,12 +32,7 @@ public class UserController {
 
     @GetMapping("register")
     public String showRegister() {
-        return "user/register";
-    }
-
-    @GetMapping("register")
-    public String register() {
-        return "user/register";
+        return "/user/register";
     }
 
     @PostMapping("register")
