@@ -32,6 +32,8 @@
                             </div>
                         </div>
                     </c:forEach>
+                    <a class="btn btn-outline-primary" href="/product/write">글 작성하기</a>
+                    <a class="btn btn-outline-danger" href="/">로그아웃</a>
                 </div>
             </div>
         </div>

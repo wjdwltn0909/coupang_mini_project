@@ -11,4 +11,5 @@ public class ProductDTO {
     private int stock;
     private String review;
     private String qna;
+    private int writerId;
 }

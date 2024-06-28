@@ -25,4 +25,12 @@ public class ProductService {
     public ProductDTO selectOne(int id) {
         return session.selectOne(NAMESPACE + ".selectOne", id);
     }
+
+    public void insert(ProductDTO attempt) {
+        session.insert(NAMESPACE + ".insert", attempt);
+    }
+
+    public void update(ProductDTO attempt) {
+        session.insert(NAMESPACE + ".update", attempt);
+    }
 }

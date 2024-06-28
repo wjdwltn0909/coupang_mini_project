@@ -34,6 +34,14 @@
                 </tr>
                 <tr>
                     <td colspan="3" class="text-center">
+                        <c:if test="${productDTO.writerId eq logIn.id}">
+                            <a class="btn btn-outline-primary" href="/product/update/${productDTO.id}">수정하기</a>
+                            <a class="btn btn-outline-danger" href="/product/delete/${productDTO.id}">삭제하기</a>
+                        </c:if>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-center">
                         <a class="btn btn-outline-secondary" href="/product/showAll">목록으로</a>
                     </td>
                 </tr>

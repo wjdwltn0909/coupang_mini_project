@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -50,5 +51,80 @@ public class ProductController {
         model.addAttribute("productDTO", productDTO);
 
         return "product/showOne";
+    }
+
+    @GetMapping("write")
+    public String showWrite(HttpSession session) {
+        UserDTO logIn = (UserDTO) session.getAttribute("logIn");
+        if (logIn == null) {
+            return "redirect:/user/auth";
+        }
+
+        return "product/write";
+
+    }
+
+    @PostMapping("write")
+    public String write(HttpSession session, ProductDTO productDTO) {
+        UserDTO logIn = (UserDTO) session.getAttribute("logIn");
+        if (logIn == null) {
+            return "redirect:/user/auth";
+        }
+
+        productDTO.setWriterId(logIn.getId());
+        productService.insert(productDTO);
+
+        return "redirect:/product/showOne/" + productDTO.getId();
+    }
+
+    @GetMapping("update/{id}")
+    public String showUpdate(@PathVariable int id, HttpSession session, Model model, RedirectAttributes redirectAttributes) {
+        UserDTO logIn = (UserDTO) session.getAttribute("logIn");
+        if (logIn == null) {
+            return "redirect:/user/auth";
+        }
+
+        ProductDTO productDTO = productService.selectOne(id);
+
+        if (productDTO == null) {
+            redirectAttributes.addFlashAttribute("message", "존재하지 않는 글 번호입니다.");
+            return "redirect:/showMessage";
+        }
+
+        if (productDTO.getWriterId() != logIn.getId()) {
+            redirectAttributes.addFlashAttribute("message", "권한이 없습니다.");
+            return "redirect:/showMessage";
+        }
+
+        model.addAttribute("productDTO", productDTO);
+
+        return "product/update";
+    }
+
+    @PostMapping("update/{id}")
+    public String update(@PathVariable int id, HttpSession session, RedirectAttributes redirectAttributes, ProductDTO attempt) {
+        UserDTO logIn = (UserDTO)session.getAttribute("logIn");
+        if (logIn == null) {
+            return "redirect:/user/auth";
+        }
+
+        ProductDTO productDTO = productService.selectOne(id);
+        if (productDTO == null) {
+            redirectAttributes.addFlashAttribute("message", "유효하지 않은 상품 번호입니다.");
+            return "redirect:/showMessage";
+        }
+
+        if (logIn.getId() != productDTO.getWriterId()) {
+            redirectAttributes.addFlashAttribute("message", "권한이 없습니다.");
+            return "redirect:/showMessage";
+        }
+
+        attempt.setId(id);
+
+        productService.update(attempt);
+
+
+        return "redirect:/product/showOne/" + id;
+
     }
 }

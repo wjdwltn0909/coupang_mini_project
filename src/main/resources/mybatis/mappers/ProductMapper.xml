@@ -10,4 +10,17 @@
     <select id="selectOne" parameterType="int" resultType="productDTO">
         SELECT * FROM product WHERE product.id = #{id}
     </select>
+
+    <insert id="insert" parameterType="productDTO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO product(name, details, price, writer_id)
+        VALUES (#{name}, #{details}, #{price}, #{writerId})
+    </insert>
+
+    <update id="update" parameterType="productDTO">
+        UPDATE product
+        SET name = #{name},
+            details = #{details},
+            price = #{price}
+        WHERE id = #{id}
+    </update>
 </mapper>
