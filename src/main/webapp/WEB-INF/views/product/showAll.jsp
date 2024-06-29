@@ -32,7 +32,9 @@
                             </div>
                         </div>
                     </c:forEach>
-                    <a class="btn btn-outline-primary" href="/product/write">글 작성하기</a>
+                    <c:if test="${logIn.level eq 2}">
+                        <a class="btn btn-outline-primary" href="/product/write">제품 등록하기</a>
+                    </c:if>
                     <a class="btn btn-outline-danger" href="/">로그아웃</a>
                 </div>
             </div>

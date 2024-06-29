@@ -26,7 +26,12 @@
             <label for="price">상품가격</label>
             <input type="text" name="price" id="price" value="${productDTO.price}">
         </div>
-        <input type="submit" value="수정하기">
+        <div>
+            <label for="stock">상품재고</label>
+            <input type="text" name="stock" id="stock" value="${productDTO.stock}">
+        </div>
+        <input type="submit" class="btn btn-outline-primary" value="수정하기">
+        <a class="btn btn-outline-danger" href="/product/showOne/${productDTO.id}">취소하기</a>
     </form>
 </div>
 </body>

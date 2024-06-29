@@ -1,6 +1,7 @@
 package com.nc13.coupang.service;
 
 import com.nc13.coupang.model.ProductDTO;
+import com.sun.jdi.NativeMethodException;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,9 @@ public class ProductService {
 
     public void update(ProductDTO attempt) {
         session.insert(NAMESPACE + ".update", attempt);
+    }
+
+    public void delete(int id) {
+        session.delete(NAMESPACE + ".delete", id);
     }
 }

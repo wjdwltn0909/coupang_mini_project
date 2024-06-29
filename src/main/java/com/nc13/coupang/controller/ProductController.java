@@ -127,4 +127,27 @@ public class ProductController {
         return "redirect:/product/showOne/" + id;
 
     }
+
+    @GetMapping("delete/{id}")
+    public String delete(@PathVariable int id, HttpSession session, RedirectAttributes redirectAttributes) {
+        UserDTO logIn = (UserDTO) session.getAttribute("logIn");
+        if (logIn == null) {
+            return "redirect:/";
+        }
+
+        ProductDTO productDTO = productService.selectOne(id);
+        if (productDTO == null) {
+            redirectAttributes.addFlashAttribute("message", "존재하지 않는 상품번호");
+            return "redirect:/showMessage";
+        }
+
+        if (productDTO.getWriterId() != logIn.getId()) {
+            redirectAttributes.addFlashAttribute("message", "권한 없음");
+            return "redirect:/showMessage";
+        }
+
+        productService.delete(id);
+
+        return "redirect:/product/showAll";
+    }
 }

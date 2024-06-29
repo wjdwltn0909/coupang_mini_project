@@ -17,17 +17,22 @@
         <div class="table">
             <div class="row justify-content-center mb-3">
                 <div class="col-6">
-                    <div class="form-floating">
+                    <div>
                         <label for="name">상품명</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="상품명">
                     </div>
-                    <div class="form-floating">
-                        <label for="details">상품 설명</label>
-                        <textarea name="details" id="details"></textarea>
+                    <div>
+                        <label for="details">상품설명</label>
+                        <br>
+                        <textarea type="text" name="details" id="details" placeholder="상품 설명"></textarea>
                     </div>
                     <div>
                         <label for="price">가격</label>
                         <input type="text" class="form-control" id="price" name="price" placeholder="가격(원)">
+                    </div>
+                    <div>
+                        <label for="stock">재고</label>
+                        <input type="text" class="form-control" id="stock" name="stock" placeholder="재고(개수)">
                     </div>
                 </div>
             </div>

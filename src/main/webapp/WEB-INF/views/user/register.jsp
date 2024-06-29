@@ -52,8 +52,16 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-4">
-                <label for="level">고객등급</label>
-                <input type="text" name="level" id="level" class="form-control">
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        level
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">관리자</a></li>
+                        <li><a class="dropdown-item" href="#">구매자</a></li>
+                        <li><a class="dropdown-item" href="#">판매자</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="row justify-content-center">

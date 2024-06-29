@@ -20,7 +20,13 @@
         UPDATE product
         SET name = #{name},
             details = #{details},
-            price = #{price}
+            price = #{price},
+            stock = #{stock}
         WHERE id = #{id}
     </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM product
+        WHERE product.id = #{id}
+    </delete>
 </mapper>
