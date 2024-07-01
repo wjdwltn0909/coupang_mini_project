@@ -13,84 +13,68 @@
 <body>
 <div class="container-fluid h-100">
     <form action="/user/register" method="POST">
-        <div class="row justify-content-center">
-            <div class="col-4">
-                <label for="username">아이디</label>
-                <input type="text" name="username" id="username" class="form-control" oninput="disableButton()">
-                <a class="btn btn-outline-primary" onclick="validateUsername()">중복확인</a>
+        <fieldset>
+            <legend>회원가입 정보</legend>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <label for="username">아이디</label>
+                    <input type="text" name="username" id="username" class="form-control" oninput="disableButton()" autofocus required>
+                    <a class="btn btn-outline-primary" onclick="validateUsername()">중복확인</a>
+                </div>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-4">
-                <label for="password">비밀번호</label>
-                <input type="password" name="password" id="password" class="form-control">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <label for="password">비밀번호</label>
+                    <input type="password" name="password" id="password" class="form-control" required>
+                </div>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-4">
-                <label for="nickname">닉네임</label>
-                <input type="text" name="nickname" id="nickname" class="form-control">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <label for="nickname">닉네임</label>
+                    <input type="text" name="nickname" id="nickname" class="form-control" required>
+                </div>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-4">
-                <label for="name">이름</label>
-                <input type="text" name="name" id="name" class="form-control">
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-4">
-                <label for="address">주소</label>
-                <input type="text" name="address" id="address" class="form-control">
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-4">
-                <label for="phoneNumber">연락처</label>
-                <input type="text" name="phoneNumber" id="phoneNumber" class="form-control">
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-4">
-                <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        level
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">관리자</a></li>
-                        <li><a class="dropdown-item" href="#">구매자</a></li>
-                        <li><a class="dropdown-item" href="#">판매자</a></li>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <ul style="list-style-type: none">
+                        <label class="reg" for="level">고객 유형</label>
+                        <select name="level" id="level" required class="form-control">
+                            <option value="1" >구매자</option>
+                            <option value="2" >판매자</option>
+                        </select>
                     </ul>
                 </div>
             </div>
-        </div>
+        </fieldset>
+        <fieldset>
+            <legend>개인 정보</legend>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <label for="name">이름</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <label for="address">주소</label>
+                    <input type="text" name="address" id="address" class="form-control" required>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <label for="phoneNumber">연락처</label>
+                    <input type="tel" name="phoneNumber" id="phoneNumber" class="form-control" required>
+                </div>
+            </div>
+        </fieldset>
         <div class="row justify-content-center">
             <div class="col-4 text-center">
                 <input id="btnSubmit" type="submit" class="btn btn-outline-primary" value="회원 가입" disabled>
+                <a class="btn btn-outline-secondary" onclick="javascript:history.go(-1)">이전으로</a>
             </div>
         </div>
     </form>
     <script>
-        // jQuery의 경우 우리가 HTML DOM 객체를 선택할 때 사용하던
-        // document.selectElement....  들을 간단하게 $() 로 사용하게 된다.
-        //let username = $('#username');
-        // jQuery는 $()로 선택된 객체의 속성값들을 수정할 수 있게 도와주는 함수가 다수 준비되어있다.
-        //$('#username').val('jQuery 로 입력함');
-        // $('#username').css({
-        //     'color': 'red',
-        //     'font-size': '32px'
-        // });
-
-        //$('#username').attr('disabled', 'true')
-
-        // AJAX 비동기화 통신
-        // 단, AJAX를 스프링에서 사용하기 위해서는
-        // 우리가 별도의 컨트롤러가 필요하다.
-        // 해당 컨트롤러는 페이지 이동을 위한 컨트롤러가 아니라
-        // 어떠한 값 또는 객체를 리턴해주는것이 목표인 컨트롤러다.
-        // 그러한 컨트롤러는 우리는 RestController라고 하고
-        // 특정 URL을 접속했을 때 어떤 값을 리턴해주는 방식의 서비스를
-        // Restful Service라고도 한다.
         function validateUsername() {
             let username = $('#username').val();
             $.ajax({

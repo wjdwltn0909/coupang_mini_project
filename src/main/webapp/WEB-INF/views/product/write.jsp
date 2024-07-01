@@ -19,20 +19,20 @@
                 <div class="col-6">
                     <div>
                         <label for="name">상품명</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="상품명">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="상품명" required>
                     </div>
                     <div>
                         <label for="details">상품설명</label>
                         <br>
-                        <textarea type="text" name="details" id="details" placeholder="상품 설명"></textarea>
+                        <textarea type="text" name="details" id="details" placeholder="상품 설명" required></textarea>
                     </div>
                     <div>
                         <label for="price">가격</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="가격(원)">
+                        <input type="number" id="price" name="price" min="0" step="10"  class="form-control" placeholder="가격(원)" required>
                     </div>
                     <div>
                         <label for="stock">재고</label>
-                        <input type="text" class="form-control" id="stock" name="stock" placeholder="재고(개수)">
+                        <input type="number" class="form-control" id="stock" name="stock" min="0" placeholder="재고(개수)" required>
                     </div>
                 </div>
             </div>
@@ -46,6 +46,11 @@
             <div class="row justify-content-center">
                 <div class="col-6">
                     <input type="submit" class="btn btn-outline-primary w-100" value="작성하기">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <a href="/" class="btn btn-outline-danger w-100" value="이전으로"/>
                 </div>
             </div>
         </div>

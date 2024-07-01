@@ -10,6 +10,7 @@ public class UserDTO {
     private String nickname;
     private String name;
     private String address;
+    private String phoneNumber;
     private int level;
 }
 

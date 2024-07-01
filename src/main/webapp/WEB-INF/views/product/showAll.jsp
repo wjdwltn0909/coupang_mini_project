@@ -11,8 +11,40 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<header class="header h-1">
+    <div class="row ">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li>
+                            <img src="/images/user.png" style="width:30px;" onclick="javascript:location.href='/user/showMypage'">
+                            <c:if test="${logIn.level eq 1}">
+                                <img src="/images/trolley.png" style="width:30px;" onclick="javascript:location.href='/cart/selectAll'">
+                            </c:if>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
 <div class="container-fluid">
-    <div class="main h-100">
+    <div class="main h-80">
         <div class="row justify-content-center">
             <div class="col-8 text-center">
                 <div class="row">
