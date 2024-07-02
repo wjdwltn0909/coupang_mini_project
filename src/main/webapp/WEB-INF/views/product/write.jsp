@@ -31,7 +31,7 @@
                         <input type="number" id="price" name="price" min="0" step="10"  class="form-control" placeholder="가격(원)" required>
                     </div>
                     <div>
-                        <label for="stock">재고</label>
+                        <label for="stock">수량</label>
                         <input type="number" class="form-control" id="stock" name="stock" min="0" placeholder="재고(개수)" required>
                     </div>
                 </div>
@@ -46,11 +46,7 @@
             <div class="row justify-content-center">
                 <div class="col-6">
                     <input type="submit" class="btn btn-outline-primary w-100" value="작성하기">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-6">
-                    <a href="/" class="btn btn-outline-danger w-100" value="이전으로"/>
+                    <a class="btn btn-outline-danger w-100" onclick="javascript:history.go(-1)">이전으로</a>
                 </div>
             </div>
         </div>

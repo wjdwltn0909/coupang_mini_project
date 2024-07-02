@@ -27,7 +27,7 @@
             <input type="text" name="price" id="price" value="${productDTO.price}">
         </div>
         <div>
-            <label for="stock">상품재고</label>
+            <label for="stock">상품수량</label>
             <input type="text" name="stock" id="stock" value="${productDTO.stock}">
         </div>
         <input type="submit" class="btn btn-outline-primary" value="수정하기">

@@ -22,7 +22,7 @@
                         <th>장바구니 주인 번호</th>
                     </tr>
                     <c:forEach items="${list}" var="item">
-                        <tr onclick="javascript:location.href='/cart/selectOne/${item.id}'">
+                        <tr onclick="javascript:location.href='/product/showOne/${item.itemId}'">
                             <td>${item.id}</td>
                             <td colspan="3">${item.itemId}</td>
                             <td>${item.itemValue}</td>

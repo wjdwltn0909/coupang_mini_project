@@ -17,11 +17,16 @@ public class CartService {
     @Autowired
     private SqlSession session;
 
-    public List<CartDTO> selectAll() {
-        return session.selectList(NAMESPACE + ".selectAll");
+    public List<CartDTO> selectAll(int userId) {
+        return session.selectList(NAMESPACE + ".selectAll", userId);
     }
 
-    public CartDTO selectOne(int id) {
-        return session.selectOne(NAMESPACE + ".selectOne", id);
+    public CartDTO selectOne(int cartId) {
+        return session.selectOne(NAMESPACE + ".selectOne", cartId);
     }
+
+    public void insert(CartDTO cartDTO) {
+        session.insert(NAMESPACE + ".insert", cartDTO);
+    }
+
 }

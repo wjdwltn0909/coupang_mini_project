@@ -46,24 +46,6 @@
                         <a class="btn btn-outline-danger" href="/user/delete/${userDTO.id}">탈퇴하기</a>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="3" class="text-center">
-                        <label for="count">수량 <input type="number" id="count"></label>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="text-center">
-                        <c:if test="${logIn.level eq 1}">
-                            <button type="button" class="btn btn-outline-success col-3">장바구니담기</button>
-                            <button type="button" class="btn btn-outline-primary col-3">구매하기</button>
-                        </c:if>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="text-center">
-                        <a class="btn btn-outline-secondary" href="/product/showAll">상품 목록으로</a>
-                    </td>
-                </tr>
             </table>
         </div>
     </div>
