@@ -9,12 +9,15 @@
         WHERE username = #{username} AND
         password = #{password}
     </select>
+
     <select id="selectByUsername" parameterType="string" resultType="userDTO">
         SELECT * FROM user
         WHERE username = #{username}
     </select>
+
     <insert id="register" parameterType="userDTO">
         INSERT INTO user(username, password, nickname, name, address, phone_number, level)
         VALUES(#{username}, #{password}, #{nickname}, #{name}, #{address}, #{phoneNumber}, #{level})
     </insert>
+
 </mapper>

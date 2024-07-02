@@ -39,7 +39,7 @@
                     <ul style="list-style-type: none">
                         <label class="reg" for="level">고객 유형</label>
                         <select name="level" id="level" required class="form-control">
-                            <option value="1" >구매자</option>
+                            <option value="1" >일반고객</option>
                             <option value="2" >판매자</option>
                         </select>
                     </ul>

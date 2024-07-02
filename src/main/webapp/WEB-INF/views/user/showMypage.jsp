@@ -18,32 +18,51 @@
             <table class="table table-striped">
                 <tr>
                     <th>고객 번호</th>
-                    <td>${userDTO.id}</td>
+                    <td>${logIn.id}</td>
                 </tr>
                 <tr>
                     <th>고객 아이디</th>
-                    <td>${userDTO.username}</td>
+                    <td>${logIn.username}</td>
                 </tr>
                 <tr>
                     <th>고객 비밀번호</th>
-                    <td>${userDTO.password}</td>
+                    <td>${logIn.password}</td>
                 </tr>
                 <tr>
                     <th>고객 별명</th>
-                    <td>${userDTO.nickname}</td>
+                    <td>${logIn.nickname}</td>
                 </tr>
                 <tr>
                     <th>고객 성함</th>
-                    <td>${userDTO.name}</td>
+                    <td>${logIn.name}</td>
                 </tr>
                 <tr>
                     <th>고객 주소</th>
-                    <td>${userDTO.address}</td>
+                    <td>${logIn.address}</td>
+                </tr>
+                <tr>
+                    <th>고객 유형</th>
+                    <c:choose>
+                        <c:when test="${logIn.level==1}">
+                            <td>일반고객</td>
+                        </c:when>
+                        <c:when test="${logIn.level==2}">
+                            <td>판매자</td>
+                        </c:when>
+                        <c:otherwise>
+                            <td>관리자</td>
+                        </c:otherwise>
+                    </c:choose>
                 </tr>
                 <tr>
                     <td colspan="3" class="text-center">
-                        <a class="btn btn-outline-primary" href="/user/update/${userDTO.id}">수정하기</a>
-                        <a class="btn btn-outline-danger" href="/user/delete/${userDTO.id}">탈퇴하기</a>
+                        <a class="btn btn-outline-primary" href="/user/update/${logIn.id}">수정하기</a>
+                        <a class="btn btn-outline-danger" href="/user/delete/${logIn.id}">탈퇴하기</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-center">
+                        <a class="btn btn-outline-secondary" onclick="javascript:history.go(-1)">이전으로</a>
                     </td>
                 </tr>
             </table>

@@ -31,6 +31,6 @@ public class UserService {
 
     public void register(UserDTO attempt) {
         SESSION.insert(NAMESPACE + ".register", attempt);
-
     }
+
 }
